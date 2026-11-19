@@ -246,6 +246,10 @@ def _get_ivs(parser, parsed_args):
 	print("Saving updated session...")
 	device.serialize_json(json_file=parsed_args.console)
 
+	print("Saving Movable.sed...")
+	with open("movable.sed", 'wb') as o:
+		o.write(bytes(device.msed))
+
 	print("Complete!")
 
 @_print_unhandled_exceptions

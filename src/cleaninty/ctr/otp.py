@@ -40,6 +40,8 @@ class OTP:
 			raise ClassInitError("OTP invalid start")
 
 		self._otp_dec_data = data if data else orig_data
+		with open("otp_dec.bin", "wb") as file:
+			file.write(self._otp_dec_data)
 
 		self._device_id = segments[1]
 		self._base_movable_keyY = segments[2]
